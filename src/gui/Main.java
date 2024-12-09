@@ -7,7 +7,7 @@ public class Main {
         Application.launch(MainWindow.class);
     }
 
-/// hgdjbdjng hjklljdh
+/// hgdjbdjng hjkl
 
 
 }

@@ -44,14 +44,17 @@ public class DestilleringPane extends GridPane {
         Label lblStartDato = new Label("StartDato");
         this.add(lblStartDato, 0, 4);
         this.add(txfStartDato, 2, 4);
+        txfStartDato.setPromptText("yy-mm-dd");
 
         Label lblSlutDato = new Label("SlutDato");
         this.add(lblSlutDato, 0, 6);
         this.add(txfSlutDato, 2, 6);
+        txfSlutDato.setPromptText("yy-mm-dd");
 
         Label lblAntalLiter = new Label("AntalLiter");
         this.add(lblAntalLiter, 0, 8);
         this.add(txfAntalLiter, 2, 8);
+
 
         Label lblKornSort = new Label("Kornsort");
         this.add(lblKornSort, 0, 10);
@@ -70,9 +73,7 @@ public class DestilleringPane extends GridPane {
         this.add(btnGem,2,17);
         btnGem.setOnAction(event -> this.gemAction());
 
-
-
-        }
+    }
 
     private void gemAction() {
 
@@ -98,18 +99,21 @@ public class DestilleringPane extends GridPane {
         controller.opretDestillering(mængde);
 
         // Fjerne tekst fra tekst felterne, hvis gem knap trykkes
-        txfMedarbejderNavn.clear();
-        txfStartDato.clear();
-        txfSlutDato.clear();
-        txfAntalLiter.clear();
-        txfKornSort.clear();
-        txfMaltBatch.clear();
-        txfMængde.clear();
+        clearFields(txfMedarbejderNavn, txfStartDato, txfSlutDato,
+                txfAntalLiter, txfKornSort, txfMaltBatch, txfMængde);
 
     }
 
 
     public void updateControls() {
 
+    }
+
+    // Funktionen kan tag imod 0 til mange String variable ("or a single array of them")
+    //<Stackoverflow>
+    private void clearFields(TextField... fields){
+        for(TextField field : fields){
+            field.clear();
+        }
     }
 }

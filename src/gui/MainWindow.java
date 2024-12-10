@@ -3,6 +3,7 @@ package gui;
 import controller.Controller;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
@@ -10,7 +11,7 @@ import javafx.stage.Stage;
 
 public class MainWindow extends Application {
     private Controller controller = new Controller();
-
+    private final ListView<String> dataList = new ListView<>();
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -31,6 +32,8 @@ public class MainWindow extends Application {
         pane.setCenter(tabPane);
     }
 
+
+
     private void initTabPane(TabPane tabPane) {
         tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
 
@@ -44,7 +47,7 @@ public class MainWindow extends Application {
         Tab tabTønde = new Tab("Tønde");
         tabPane.getTabs().add(tabTønde);
 
-        TøndePane tøndePane = new TøndePane();
+        TøndePane tøndePane = new TøndePane(controller);
         tabTønde.setContent(tøndePane);
         tabTønde.setOnSelectionChanged(event -> tøndePane.updateControls());
 

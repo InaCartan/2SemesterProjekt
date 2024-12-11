@@ -16,12 +16,6 @@ public class Controller {
     }
 
 
-    // Husk resten af argumenterne i den anden metoder (husk at slette denne metode)
-    public void opretDestillering(String kornSort){
-        Destillering destillering = new Destillering(1,1,"?",
-                LocalDate.now(),LocalDate.now(),kornSort,1,1.1);
-        storage.gemDestillering(destillering);
-    }
 
     public void opretDestillering(int newMake, int mængde, String medarbejderNavn, LocalDate startDato, LocalDate slutDato,
                                   String kornSort, int maltBatch, double alkoholProcent){
@@ -35,4 +29,9 @@ public class Controller {
     public ArrayList<Destillering> getDestilleringer() {
         return storage.getDestilleringer();
     }
+
+    public ArrayList<Tønde> getTønde() {
+        return storage.getTønder();
+    }
+
 }

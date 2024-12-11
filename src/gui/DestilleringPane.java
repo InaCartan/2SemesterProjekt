@@ -20,6 +20,9 @@ public class DestilleringPane extends GridPane {
     private final TextField txfKornSort = new TextField();
     private final TextField txfMaltBatch = new TextField();
     private final TextField txfMængde = new TextField();
+    private final TextField txfNewMake = new TextField();
+    private final TextField txfalkoholProcent = new TextField();
+
 
     // private final TextField txfAlkoholProcent = new TextField(); ??
 
@@ -51,26 +54,29 @@ public class DestilleringPane extends GridPane {
         this.add(txfSlutDato, 2, 6);
         txfSlutDato.setPromptText("yy-mm-dd");
 
-        Label lblAntalLiter = new Label("AntalLiter");
-        this.add(lblAntalLiter, 0, 8);
-        this.add(txfAntalLiter, 2, 8);
-
 
         Label lblKornSort = new Label("Kornsort");
-        this.add(lblKornSort, 0, 10);
-        this.add(txfKornSort, 2, 10);
+        this.add(lblKornSort, 0,8);
+        this.add(txfKornSort, 2, 8);
 
         Label lblMaltBatch = new Label("MaltBatch");
-        this.add(lblMaltBatch, 0, 12);
-        this.add(txfMaltBatch, 2, 12);
+        this.add(lblMaltBatch, 0, 10);
+        this.add(txfMaltBatch, 2, 10);
 
 
         Label lblMængde = new Label("Mængde");
-        this.add(lblMængde, 0, 14);
-        this.add(txfMængde, 2, 14);
+        this.add(lblMængde, 0, 12);
+        this.add(txfMængde, 2, 12);
 
+        Label lblnewMake = new Label("New Make");
+        this.add(lblnewMake, 0, 14);
+        this.add(txfNewMake, 2, 14);
 
-        this.add(btnGem,2,17);
+        Label lblalkoholProcent = new Label("Alkohol Procent");
+        this.add(lblalkoholProcent, 0, 16);
+        this.add(txfalkoholProcent, 2, 16);
+
+        this.add(btnGem,2,18);
         btnGem.setOnAction(event -> this.gemAction());
 
     }
@@ -78,29 +84,27 @@ public class DestilleringPane extends GridPane {
     private void gemAction() {
 
         String medarbejderNavn = txfMedarbejderNavn.getText();
-        controller.opretDestillering(medarbejderNavn);
 
-        String startDato = txfStartDato.getText();
-        controller.opretDestillering(startDato);
+        LocalDate startDato = LocalDate.parse(txfStartDato.getText());
 
-        String slutDato = txfSlutDato.getText();
-        controller.opretDestillering(slutDato);
-
-        String antaLiter = txfAntalLiter.getText();
-        controller.opretDestillering(antaLiter);
+        LocalDate slutDato = LocalDate.parse(txfSlutDato.getText());
 
         String kornSort = txfKornSort.getText();
-        controller.opretDestillering(kornSort);
 
-        String maltBatch = txfMaltBatch.getText();
-        controller.opretDestillering(maltBatch);
+        int maltBatch = Integer.parseInt(txfMaltBatch.getText());
 
-        String mængde = txfMængde.getText();
-        controller.opretDestillering(mængde);
+        int mængde = Integer.parseInt(txfMængde.getText());
+
+        int newMake = Integer.parseInt(txfNewMake.getText());
+
+        double alkoholProcent = Integer.parseInt(txfalkoholProcent.getText());
+
+        controller.opretDestillering(newMake, mængde, medarbejderNavn, startDato, slutDato, kornSort, maltBatch, alkoholProcent);
+
 
         // Fjerne tekst fra tekst felterne, hvis gem knap trykkes
         clearFields(txfMedarbejderNavn, txfStartDato, txfSlutDato,
-                txfAntalLiter, txfKornSort, txfMaltBatch, txfMængde);
+                txfAntalLiter, txfKornSort, txfMaltBatch, txfMængde, txfNewMake, txfalkoholProcent);
 
     }
 

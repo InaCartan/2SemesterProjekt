@@ -8,6 +8,7 @@ public class Destillering {
 
     private int mængde;
 
+
     private ArrayList<Mængde> mængder = new ArrayList<>();
 
     private String medarbejderNavn;
@@ -115,12 +116,14 @@ public class Destillering {
 
     @Override
     public String toString() {
-        return "Destillering: \n"
-                + medarbejderNavn
-                + startDato.toString() + " ... til ... " + slutDato.toString() + "\n"
-                + "Mængde " + mængde
-                + kornSort.toString()
-                + "Malt batch " + maltBatch;
+        return   "Medarbejder navn: " + medarbejderNavn + "\n"
+                + "Dato: " + startDato.toString() + "... til ... " + slutDato.toString() + "\n"
+                + "Korn sort: " + kornSort.toString() + "\n"
+                + "Malt batch: " + maltBatch + "\n"
+                + "Mængde: " + mængde + "\n"
+                + "New make: " + newMake + "\n"
+                + "Alkohol procent: " + alkoholProcent + "\n";
+
 
     }
 }

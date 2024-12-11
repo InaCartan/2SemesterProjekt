@@ -11,6 +11,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import java.time.LocalDate;
+
 public class TøndePane extends GridPane {
 
     private Controller controller;
@@ -46,6 +48,7 @@ public class TøndePane extends GridPane {
         this.add(lbltidligerIndhold, 0, 6);
         this.add(txftidligerIndhold, 2, 6);
 
+
         Label lbllager = new Label("Lager");
         this.add(lbllager, 0, 8);
         this.add(txflager, 2, 8);
@@ -67,38 +70,33 @@ public class TøndePane extends GridPane {
 
     private void gemAction() {
 
-        String medarbejderNavn = txfMedarbejderNavn.getText();
-        controller.opretDestillering(medarbejderNavn);
 
-        int tøndeId = Integer.parseInt(txftøndeId.getText());
+        int TøndeId = Integer.parseInt(txftøndeId.getText());
 
-        controller.opretTønde(tøndeId);
+        int Størrelse = Integer.parseInt(txfstørrelse.getText());
+
+        String TidligerIndhold = txftidligerIndhold.getText();
+
+        String FadType = txffadType.getText();
+
+        controller.opretTønde(TøndeId, Størrelse, TidligerIndhold, FadType);
 
 
-        String startDato = txfStartDato.getText();
-        controller.opretDestillering(startDato);
-
-        String slutDato = txfSlutDato.getText();
-        controller.opretDestillering(slutDato);
-
-        String antaLiter = txfAntalLiter.getText();
-        controller.opretDestillering(antaLiter);
-
-        String kornSort = txfKornSort.getText();
-        controller.opretDestillering(kornSort);
-
-        String maltBatch = txfMaltBatch.getText();
-        controller.opretDestillering(maltBatch);
-
-        String mængde = txfMængde.getText();
-        controller.opretDestillering(mængde);
 
         // Fjerne tekst fra tekst felterne, hvis gem knap trykkes
-        clearFields(txfMedarbejderNavn, txfStartDato, txfSlutDato,
-                txfAntalLiter, txfKornSort, txfMaltBatch, txfMængde);
+        clearFields(txftøndeId, txfstørrelse, txftidligerIndhold, txffadType);
 
     }
 
     public void updateControls() {
+
+
     }
+
+    private void clearFields(TextField... fields){
+        for(TextField field : fields){
+            field.clear();
+        }
+    }
+
 }

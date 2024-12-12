@@ -49,16 +49,13 @@ public class TøndePane extends GridPane {
         this.add(txftidligerIndhold, 2, 6);
 
 
-        Label lbllager = new Label("Lager");
-        this.add(lbllager, 0, 8);
-        this.add(txflager, 2, 8);
+//        Label lbllager = new Label("Lager");
+//        this.add(lbllager, 0, 8);
+//        this.add(txflager, 2, 8);
+//
+//
 
-
-        Label lblMængder = new Label("Mængde");
-        this.add(lblMængder, 0, 10);
-        this.add(txfmængder, 2, 10);
-
-        Label lblFadtype = new Label("Mængde");
+        Label lblFadtype = new Label("Fadtype");
         this.add(lblFadtype, 0, 12);
         this.add(txffadType, 2, 12);
 
@@ -80,7 +77,6 @@ public class TøndePane extends GridPane {
         String FadType = txffadType.getText();
 
         controller.opretTønde(TøndeId, Størrelse, TidligerIndhold, FadType);
-
 
 
         // Fjerne tekst fra tekst felterne, hvis gem knap trykkes

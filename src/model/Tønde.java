@@ -53,5 +53,18 @@ public class Tønde {
     public String getFadType() {
         return fadType;
     }
+
+
+    @Override
+    public String toString() {
+        return   "TøndeID: " + tøndeId + "\n"
+                + "Tidligere indhold: " + tidligerIndhold.toString() + "\n"
+                + "Størrelse: " + størrelse + "\n"
+                + "Fadtype: " + fadType.toString() + "\n"
+                + "Lager: " + lager + "\n";
+
+
+
+    }
 }
 

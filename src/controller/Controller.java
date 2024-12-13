@@ -1,7 +1,9 @@
 package controller;
 
 import model.Destillering;
+import model.Mængde;
 import model.Tønde;
+import model.Whisky;
 import storage.Storage;
 
 import java.time.LocalDate;
@@ -16,6 +18,9 @@ public class Controller {
     }
 
 
+    // tilføj Lager lager
+    // Mængde Arraylist, hvad skal vi gøre med den ?
+
 
     public void opretDestillering(int newMake, int mængde, String medarbejderNavn, LocalDate startDato, LocalDate slutDato,
                                   String kornSort, int maltBatch, double alkoholProcent){
@@ -26,6 +31,15 @@ public class Controller {
 
     }
 
+
+    public void opretWhisky(int produktId, String type, double alkoholProcent, int fortyndet, int antalFlasker) {
+
+        Whisky whisky = new Whisky(produktId,type,alkoholProcent,fortyndet,antalFlasker);
+        storage.gemWhisky(whisky);
+    }
+
+
+
     public ArrayList<Destillering> getDestilleringer() {
         return storage.getDestilleringer();
     }
@@ -33,5 +47,10 @@ public class Controller {
     public ArrayList<Tønde> getTønde() {
         return storage.getTønder();
     }
+
+    public ArrayList<Whisky> getWhisky() {
+        return storage.getWhisky();
+    }
+
 
 }

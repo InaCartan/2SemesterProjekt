@@ -1,9 +1,6 @@
 package controller;
 
-import model.Destillering;
-import model.Mængde;
-import model.Tønde;
-import model.Whisky;
+import model.*;
 import storage.Storage;
 
 import java.time.LocalDate;
@@ -54,6 +51,12 @@ public class Controller {
 
 
     public void opretMængde(int m, Tønde tønde, Destillering destillering, LocalDate påFyldningsDato) {
+
+    }
+
+    public void opretLager(String lagerType, int kapacitet) {
+
+        Lager lager = new Lager(lagerType, kapacitet );
 
     }
 }

@@ -44,7 +44,7 @@ public class MainWindow extends Application {
         Tab tabTønde = new Tab("Tønde");
         tabPane.getTabs().add(tabTønde);
 
-        TøndePane tøndePane = new TøndePane();
+        TøndePane tøndePane = new TøndePane(controller);
         tabTønde.setContent(tøndePane);
         tabTønde.setOnSelectionChanged(event -> tøndePane.updateControls());
 

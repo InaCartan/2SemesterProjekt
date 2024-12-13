@@ -1,6 +1,7 @@
 package storage;
 
 import model.Destillering;
+import model.Mængde;
 import model.Tønde;
 import model.Whisky;
 
@@ -28,11 +29,14 @@ public class Storage {
         return destilleringer;
     }
 
-    public void gemWhisky(Whisky whiskys) {whisky.add(whiskys);
+    public void gemWhisky(Whisky whiskys) {whisky.add(whiskys);}
 
-    }
+
 
     public ArrayList<Whisky> getWhisky() {return whisky;}
 
 
+    public void gemMængde(Mængde mængde) {
+
+    }
 }

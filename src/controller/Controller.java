@@ -53,4 +53,7 @@ public class Controller {
     }
 
 
+    public void opretMængde(int m, Tønde tønde, Destillering destillering, LocalDate påFyldningsDato) {
+
+    }
 }
